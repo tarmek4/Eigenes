@@ -4,7 +4,7 @@ public class stringtest1 {
 
 	public static void main(String[] args) {
 		
-		String a = "blaadfrghetoighaerhipoaejh";
+		String a = "blaadfrghetoigrhipoaejh";
 		String b = "blubb";
 		String c = b +" " + a;
 		a.indent(5);
