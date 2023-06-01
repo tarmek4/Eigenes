@@ -2,10 +2,12 @@ package unterkapitel_03_01;
 
 public class Auto {
 
-	public String marke;
-	public int tempo;
+	private String marke;
+	private int tempo;
 	public int ps;
 	public String farbe;
+
+	public static int reifenanzahl;
 
 	public void beschleunige() {
 		tempo += 10;
@@ -18,4 +20,21 @@ public class Auto {
 		if (tempo < 0)
 			tempo = 0;
 	}
+
+	public String getMarke() {
+		return marke;
+	}
+
+	public void setMarke(String marke) {
+		this.marke = marke;
+	}
+
+	public int getTempo() {
+		return tempo;
+	}
+
+	public void setTempo(int a) {
+		tempo = a;
+	}
+
 }

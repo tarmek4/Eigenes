@@ -4,12 +4,12 @@ public class ReferenzDemo {
 
 	public static void main(String args[]) {
 		Auto a = new Auto();
-		a.marke = "BMW";
+		a.setMarke("BMW");
 
 		Auto b = a;
 
-		b.marke = "Porsche";
+		b.setMarke("Porsche");
 
-		System.out.println(a.marke);
+		System.out.println(a.getMarke());
 	}
 }
