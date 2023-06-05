@@ -44,15 +44,21 @@ public class CookieMain {
 	JLabel bankLabel;
 	int bankKosten = 1000;
 	int bankAnzahl = 0;
+	
+
 
 	public static void main(String[] args) {
 		new CookieMain();
 //		System.out.print("TEST");
+		
 
 	}
 
 	public CookieMain() {
-
+		
+		
+		
+		
 		cookieCounter = 5000;
 		createFont();
 		createUI();
@@ -135,7 +141,7 @@ public class CookieMain {
 		counterPanel.add(perSecLabel);
 
 		JPanel upgradePanel = new JPanel();
-		upgradePanel.setBounds(400, 100, 350, 500);
+		upgradePanel.setBounds(400, 100, 400, 500);
 		upgradePanel.setBackground(Color.black);
 //		counterPanel.setLayout(new GridLayout(2, 1));// legt Layout-Manager fest
 		window.add(upgradePanel);
@@ -282,7 +288,7 @@ public class CookieMain {
 		
 
 	}
-	int zufall2 = 0;
+	int letzterzufall = 0;
 	int zufall = 0;
 	public void Newsflash() {
 		
@@ -295,18 +301,21 @@ public class CookieMain {
 								
 		};
 		
-//	
-//		int zufall= (int)(Math.random()*news.length);
-//		if (zufall != zufall2) {
-//			newsLabel.setText(news[zufall]);
-//			zufall2 = zufall;
-//		}
-//		
-//		
+	
+		int zufall= (int)(Math.random()*news.length);
 		
-		newsLabel.setText(news[(int)(Math.random()*news.length)]);
 		
-//		System.out.print(zufall);
+		
+		
+		while (zufall == letzterzufall) {
+			 zufall= (int)(Math.random()*news.length);
+		}
+		newsLabel.setText(news[zufall]);
+		letzterzufall = zufall;
+		
+				
+		
+		System.out.print(zufall);
 	
 	
 	}
