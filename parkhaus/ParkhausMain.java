@@ -8,6 +8,7 @@ public class ParkhausMain {
 
 	public static void main(String[] args) {
 
+		Datenbank.main(args);
 		ParkhausErstellen();
 		Auswahl();
 
@@ -39,7 +40,8 @@ public class ParkhausMain {
 
 	}
 
-	static void Auswahl() {
+	
+		static void Auswahl() {
 		System.out.println();
 		System.out.println("-----------------------------------------------------------------------");
 		System.out.println();
@@ -47,6 +49,7 @@ public class ParkhausMain {
 		System.out.println("(1)  Einfahrt Auto. ");
 		System.out.println("(2)  Ausfahrt Auto. ");
 		System.out.println("(3)  Nach Auto suchen. ");
+		System.out.println("(4)  Anzahl der freien Parkplätze anzeigen. ");
 
 		Scanner scannerMenu = new Scanner(System.in);
 		int auswahl = scannerMenu.nextInt();
@@ -60,6 +63,9 @@ public class ParkhausMain {
 		if (auswahl == 3) {
 			AutoSuche();
 		}
+		if (auswahl == 4) {
+//			FreieParkplaetze();
+		}
 
 	}
 
@@ -71,25 +77,46 @@ public class ParkhausMain {
 
 		String auto = scanner2.next();
 		boolean parkplatzGefunden = false;
-		
-	
+
+		boolean autoGefunden = false;
+
 		for (int i = 0; i < arr.length; i++) {
 
 			for (int j = 0; j < arr[i].length; j++) {
+				if (arr[i][j] != null) {
+					if (arr[i][j].equals(auto)) {
 
-				if (arr[i][j] == null) {
-					arr[i][j] = auto;
-					System.out.println("Das Auto mit dem Nummernschild: " + auto + " wurde dem Parkplatz " + (j + 1)
-							+ " auf Etage " + (i + 1) + " zugewiesen.");
-					parkplatzGefunden = true;
-					break;
+						System.out.println("Warnung: Das Auto mit dem Nummernschild: " + auto
+								+ " steht bereits auf dem Parkplatz " + (j + 1) + " Auf der Etage " + (i + 1));
+						autoGefunden = true;
+						break;
+					}
 				}
-
 			}
-			if (parkplatzGefunden) {
-				parkplatzGefunden = false;
+			if (autoGefunden) {
 				break;
 			}
+		}
+		if (!autoGefunden) {
+			for (int i = 0; i < arr.length; i++) {
+
+				for (int j = 0; j < arr[i].length; j++) {
+
+					if (arr[i][j] == null) {
+						arr[i][j] = auto;
+						System.out.println("Das Auto mit dem Nummernschild: " + auto + " wurde dem Parkplatz " + (j + 1)
+								+ " auf Etage " + (i + 1) + " zugewiesen.");
+						parkplatzGefunden = true;
+						break;
+					}
+
+				}
+				if (parkplatzGefunden) {
+					parkplatzGefunden = false;
+					break;
+				}
+			}
+
 		}
 
 		Auswahl();
@@ -157,13 +184,27 @@ public class ParkhausMain {
 			if (autoGefunden) {
 				break;
 			}
-			if (!autoGefunden) {
-				System.out.println("Das Auto mit dem Nummernschild " + autoSuche + " befindet sich nicht im Parkhaus.");
-			}
+
 		}
-			
+		if (!autoGefunden) {
+			System.out.println("Das Auto mit dem Nummernschild " + autoSuche + " befindet sich nicht im Parkhaus.");
+		}
 		Auswahl();
 
 	}
+	
+//	static int FreieParkplaetze() {
+//		int anzahlFreieParkplätze = 0;
+//				
+//		for (int i = 0; i < arr.length; i++) {
+//
+//			for (int j = 0; j < arr[i].length; j++) {
+//				if (arr[i][j] == null) {
+//					anzahlFreieParkplätze++;
+//				}
+//		
+//		
+//		return anzahlFreieParkplätze;
+//	}
 
 }
