@@ -10,8 +10,9 @@ public class SOTest {
 	public static int OF (int a){
 		
 		OF(a*a);
-		
+		System.out.print(a);
 		return a;
+		
 		
 		
 	}
