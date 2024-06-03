@@ -11,7 +11,7 @@ public class spielHaupt {
 		int schaden_spieler;
 
 		if (staerketrank_benutzt) {
-			schaden_spieler = (int) (Math.random() * 12 + 1);
+			schaden_spieler = (int) (Math.random() * 8 + 3);
 		} else {
 			schaden_spieler = (int) (Math.random() * 8 + 1);
 		}
@@ -61,8 +61,7 @@ public class spielHaupt {
 			}
 
 			if (auswahl_inventar == 2 && staerketrank > 0) {
-				System.out.println("Du trinkst einen Stärketrank. Du fügst im nächsten Kampf " + schaden_spieler()
-						+ " Schaden mit jedem Schlag zu.");
+				System.out.println("Du trinkst einen Stärketrank. Du fügst im nächsten Kampf +2 Schaden mit jedem Schlag zu.");
 				staerketrank_benutzt = true;
 				staerketrank--;
 				zurueck();

@@ -8,7 +8,7 @@ public class ParkhausMain {
 
 	public static void main(String[] args) {
 
-		Datenbank.main(args);
+		
 		ParkhausErstellen();
 		Auswahl();
 
